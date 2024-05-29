@@ -22,10 +22,11 @@ jobs:
         with:
           run: "bash ./build-all.sh openscad-nightly"
 
-      - uses: vimtor/action-zip@v1.2
-        with:
-          files: LICENSE README.md ./*/*.*
-          dest: release.zip
+      - name: "Install zip cli"
+        run: "sudo apt install zip -y"
+
+      - name: "Zip Release"
+        run: "zip -r release.zip LICENSE README.md ./*/*.*"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2.0.5
