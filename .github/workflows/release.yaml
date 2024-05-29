@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build-and-release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.6
+
+      - name: "Install OpenSCAD"
+        run: "sudo snap install openscad-nightly"
+
+      - name: "Build with OpenSCAD"
+        run: "alias openscad=openscad-nightly && bash ./build-all.sh"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2.0.5
+        with:
+          files: |
+            LICENSE
+            README.md
+            ./*/*.*
+          generate_release_notes: true
