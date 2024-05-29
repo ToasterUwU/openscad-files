@@ -6,7 +6,7 @@ USE_TRIANGLE_SLANTS_FOR_DOUBLE_COMPARTMENTS = true;
 WALL_THICKNESS = 5;
 COMPARTMENT_WIDTH = 140; // includes walls
 COMPARTMENT_DEPTH = 110; // includes walls
-COMPARTMENT_HEIGHT = 155; // includes floor
+COMPARTMENT_HEIGHT = 150; // includes floor
 
 for (i = [0:1:NUMBER_OF_COMPARTMENTS - 1]) {
   // Move everything over next to each other for each compartment block
