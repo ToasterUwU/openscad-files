@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 for dir in ./*; do
     if [ -d "$dir" ]; then
         for file in "$dir"/*.scad; do
