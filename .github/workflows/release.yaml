@@ -22,11 +22,13 @@ jobs:
         with:
           run: "bash ./build-all.sh openscad-nightly"
 
+      - uses: vimtor/action-zip@v1.2
+        with:
+          files: LICENSE README.md ./*/*.*
+          dest: release.zip
+
       - name: Create Release
         uses: softprops/action-gh-release@v2.0.5
         with:
-          files: |
-            LICENSE
-            README.md
-            ./*/*.*
+          files: release.zip
           generate_release_notes: true
