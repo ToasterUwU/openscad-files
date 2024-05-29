@@ -4,8 +4,8 @@ USE_SUPPORT_WALLS_FOR_DOUBLE_COMPARTMENTS = true;
 USE_TRIANGLE_SLANTS_FOR_DOUBLE_COMPARTMENTS = true;
 
 WALL_THICKNESS = 5;
-COMPARTMENT_WIDTH = 140; // includes walls
-COMPARTMENT_DEPTH = 110; // includes walls
+COMPARTMENT_WIDTH = 140;  // includes walls
+COMPARTMENT_DEPTH = 110;  // includes walls
 COMPARTMENT_HEIGHT = 150; // includes floor
 
 for (i = [0:1:NUMBER_OF_COMPARTMENTS - 1]) {
@@ -23,7 +23,7 @@ for (i = [0:1:NUMBER_OF_COMPARTMENTS - 1]) {
         // Support Walls below the top compartment
         if (USE_SUPPORT_WALLS_FOR_DOUBLE_COMPARTMENTS) {
           for (x = [0.25:0.50:0.75]) {
-            translate(v = [ x * COMPARTMENT_WIDTH, 0, 0 ]) {
+            translate(v = [ x * (COMPARTMENT_WIDTH - WALL_THICKNESS), 0, 0 ]) {
               cube(size = [
                 WALL_THICKNESS, COMPARTMENT_DEPTH, 0.75 * COMPARTMENT_HEIGHT
               ]);
@@ -33,19 +33,36 @@ for (i = [0:1:NUMBER_OF_COMPARTMENTS - 1]) {
 
         // Slants to prevent overhang issues while printing
         if (USE_TRIANGLE_SLANTS_FOR_DOUBLE_COMPARTMENTS) {
-          hull() {
-            cube(size = [ COMPARTMENT_WIDTH, WALL_THICKNESS, WALL_THICKNESS ]);
+          // Do 2 times, orient on Support Walls in the back
+          for (x = [0.25:0.50:0.75]) {
+            hull() {
+              // Lower Sticks in the Walls
+              translate(v = [
+                x * (COMPARTMENT_WIDTH - WALL_THICKNESS), 0,
+                (0.75 * COMPARTMENT_HEIGHT) - (0.25 * COMPARTMENT_WIDTH)
+              ]) {
+                cube(size =
+                         [ WALL_THICKNESS, COMPARTMENT_DEPTH, WALL_THICKNESS ]);
+              }
 
-            translate(v = [ 0, 0, 0.75 * COMPARTMENT_HEIGHT ]) {
-              cube(size =
-                       [ COMPARTMENT_WIDTH, WALL_THICKNESS, WALL_THICKNESS ]);
-            }
-
-            translate(v = [
-              0, COMPARTMENT_DEPTH - WALL_THICKNESS, 0.75 * COMPARTMENT_HEIGHT
-            ]) {
-              cube(size =
-                       [ COMPARTMENT_WIDTH, WALL_THICKNESS, WALL_THICKNESS ]);
+              // Upper Sticks in the Ceiling
+              for (x2 = [-1:1:1]) {
+                // Move aligned to the supported walls (x) and make 3 sticks,
+                // each moved by as much as the walls, so they align with start,
+                // end and the middle. Also move up into the ceiling (0.75 *
+                // COMPARTMENT_HEIGHT)
+                translate(v = [
+                  (x * (COMPARTMENT_WIDTH - WALL_THICKNESS)) +
+                      (x2 * (0.25 * (COMPARTMENT_WIDTH - WALL_THICKNESS))),
+                  0, 0.75 *
+                  COMPARTMENT_HEIGHT
+                ]) {
+                  cube(size = [
+                    WALL_THICKNESS, COMPARTMENT_DEPTH,
+                    WALL_THICKNESS
+                  ]);
+                }
+              }
             }
           }
         }
