@@ -74,31 +74,34 @@ module sideFlap(isLeftSide = false, isRightSide = false)
     }
 }
 
-// Long Side
-union()
+render()
 {
-    cube(size = [ WIDTH, WALL_THICKNESS, LENGTH - INSERTION_LENGTH ]);
-    if (ADD_BEZEL)
+    // Long Side
+    union()
     {
-        translate(v = [ -BEZEL_THICKNESS - WALL_THICKNESS, -BEZEL_THICKNESS, 0 ])
+        cube(size = [ WIDTH, WALL_THICKNESS, LENGTH - INSERTION_LENGTH ]);
+        if (ADD_BEZEL)
         {
-            cube(size = [ WIDTH + (WALL_THICKNESS + BEZEL_THICKNESS) * 2, BEZEL_THICKNESS, BEZEL_DEPTH ]);
+            translate(v = [ -BEZEL_THICKNESS - WALL_THICKNESS, -BEZEL_THICKNESS, 0 ])
+            {
+                cube(size = [ WIDTH + (WALL_THICKNESS + BEZEL_THICKNESS) * 2, BEZEL_THICKNESS, BEZEL_DEPTH ]);
+            }
+        }
+        translate(v = [ 0, WALL_THICKNESS - INSERTION_WALL_THICKNESS, LENGTH - INSERTION_LENGTH ])
+        {
+            cube(size = [ WIDTH, INSERTION_WALL_THICKNESS, INSERTION_LENGTH ]);
         }
     }
-    translate(v = [ 0, WALL_THICKNESS - INSERTION_WALL_THICKNESS, LENGTH - INSERTION_LENGTH ])
+
+    // Left Side
+    translate(v = [ -WALL_THICKNESS, 0, 0 ])
     {
-        cube(size = [ WIDTH, INSERTION_WALL_THICKNESS, INSERTION_LENGTH ]);
+        sideFlap(isLeftSide = true);
     }
-}
 
-// Left Side
-translate(v = [ -WALL_THICKNESS, 0, 0 ])
-{
-    sideFlap(isLeftSide = true);
-}
-
-// Right Side
-translate(v = [ WIDTH, 0, 0 ])
-{
-    sideFlap(isRightSide = true);
+    // Right Side
+    translate(v = [ WIDTH, 0, 0 ])
+    {
+        sideFlap(isRightSide = true);
+    }
 }
