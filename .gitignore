@@ -1,3 +1,5 @@
 *.stl
 preview.png
 release.zip
+.direnv
+.lib/BOSL2
