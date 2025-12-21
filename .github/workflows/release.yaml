@@ -14,19 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.1.6
 
-      - name: "Install OpenSCAD"
-        run: "sudo snap install openscad-nightly"
+      - name: "Install nix, which is needed for nix-develop action"
+        uses: DeterminateSystems/determinate-nix-action@v3
+
+      - name: "Install xvfb"
+        uses: coactions/setup-xvfb@v1
+
+      - name: "Enter Nix develop environment"
+        uses: nicknovitski/nix-develop@v1
 
       - name: "Build with OpenSCAD"
-        uses: coactions/setup-xvfb@v1
-        with:
-          run: "bash ./build-all.sh openscad-nightly"
-
-      - name: "Install zip cli"
-        run: "sudo apt install zip -y"
+        run: "bash ./build-all.sh"
 
       - name: "Zip Release"
-        run: "zip -r release.zip LICENSE README.md ./*/*.*"
+        uses: nicknovitski/nix-develop@v1
+        with:
+          run: "zip -r release.zip LICENSE README.md ./*/*.*"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2.0.5

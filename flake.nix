@@ -27,6 +27,7 @@
           buildInputs = with pkgs; [
             openscad
             bash
+            zip
           ];
           shellHook = ''
             mkdir -p .lib
