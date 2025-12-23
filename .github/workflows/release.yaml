@@ -17,14 +17,13 @@ jobs:
       - name: "Install nix, which is needed for nix-develop action"
         uses: DeterminateSystems/determinate-nix-action@v3
 
-      - name: "Install xvfb for headless OpenSCAD rendering"
-        uses: coactions/setup-xvfb@v1
-
       - name: "Enter Nix develop environment"
         uses: nicknovitski/nix-develop@v1
 
       - name: "Build with OpenSCAD"
-        run: "python3 ./build-all.py"
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: "python3 ./build-all.py"
 
       - name: "Zip Release"
         uses: nicknovitski/nix-develop@v1
