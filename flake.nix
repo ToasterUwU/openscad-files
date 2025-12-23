@@ -26,7 +26,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             openscad
-            bash
+            python3
             zip
           ];
           shellHook = ''

@@ -24,7 +24,7 @@ jobs:
         uses: nicknovitski/nix-develop@v1
 
       - name: "Build with OpenSCAD"
-        run: "bash ./build-all.sh"
+        run: "python3 ./build-all.py"
 
       - name: "Zip Release"
         uses: nicknovitski/nix-develop@v1
