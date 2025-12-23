@@ -1,22 +1,24 @@
-$fn = 100;
+/* [Amount of Detail] */
+SIDES_PER_OBJECT = 100; // [5:1000]
 
-// Variant 1
-// HOLDER_DIAMETER = 24.6;
-// HOLDER_HEIGHT = 26;
-// HOLDER_WALL_THICKNESS = 4;
+/* [Hidden] */
+$fn = SIDES_PER_OBJECT;
 
-// Variant 2
-HOLDER_DIAMETER = 32.6;
-HOLDER_HEIGHT = 26;
-HOLDER_WALL_THICKNESS = 4;
+/* [Holder Cylinder] */
+HOLDER_DIAMETER = 24.6; // .1
+// The Stability Ring Height will not be added to this, so this is the total height
+HOLDER_HEIGHT = 26; // .1
+HOLDER_WALL_THICKNESS = 4; // .1
 
+/* [Stability Ring] */
 STABILITY_RING = true;
-STABILITY_RING_HEIGHT = 5;
+STABILITY_RING_HEIGHT = 5; // .1
 // Only the added diameter around the Holder Diameter
-STABILITY_RING_DIAMETER = 10;
+STABILITY_RING_DIAMETER = 10; // .1
 
+/* [Screw Hole] */
 SCREW_HOLE = true;
-SCREW_HOLE_DIAMETER = 4;
+SCREW_HOLE_DIAMETER = 4; // .1
 
 difference() {
   // Main Holder Body, with optional stability ring

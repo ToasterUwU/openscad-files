@@ -1,0 +1,27 @@
+{
+    "parameterSets": {
+        "Variant 1": {
+            "HOLDER_DIAMETER": "24.6",
+            "HOLDER_HEIGHT": "26",
+            "HOLDER_WALL_THICKNESS": "4",
+            "SCREW_HOLE": "true",
+            "SCREW_HOLE_DIAMETER": "4",
+            "SIDES_PER_OBJECT": "100",
+            "STABILITY_RING": "true",
+            "STABILITY_RING_DIAMETER": "10",
+            "STABILITY_RING_HEIGHT": "5"
+        },
+        "Variant 2": {
+            "HOLDER_DIAMETER": "32.7",
+            "HOLDER_HEIGHT": "19.8",
+            "HOLDER_WALL_THICKNESS": "4",
+            "SCREW_HOLE": "true",
+            "SCREW_HOLE_DIAMETER": "4",
+            "SIDES_PER_OBJECT": "100",
+            "STABILITY_RING": "true",
+            "STABILITY_RING_DIAMETER": "10",
+            "STABILITY_RING_HEIGHT": "5"
+        }
+    },
+    "fileFormatVersion": "1"
+}
