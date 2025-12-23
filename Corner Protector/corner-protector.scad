@@ -1,14 +1,22 @@
-$fn = 100;
+/* [Amount of Detail] */
+SIDES_PER_OBJECT = 100; // [5:1000]
 
-SIDE_LENGTH = 55;
-ROUND_EDGE_RADIUS = 3;
-WALL_THICKNESS = 3;
+/* [Hidden] */
+$fn = SIDES_PER_OBJECT;
 
+/* [General] */
+SIDE_LENGTH = 55; // .1
+ROUND_EDGE_RADIUS = 3; // .1
+WALL_THICKNESS = 3; // .1
+
+/* [Inner Edge Rounding] */
 ROUND_INNER_EDGES = false;
-ROUND_INNER_EDGE_RADIUS = 1;
+ROUND_INNER_EDGE_RADIUS = 1; // .1
 
+/* [Angled Side Cutoffs] */
 ANGLED_SIDE_CUTOFFS = true;
 
+/* [Screw Holes] */
 SCREW_HOLES = false; // TODO implement screw holes
 
 include <../.lib/BOSL2/std.scad>

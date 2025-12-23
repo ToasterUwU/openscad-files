@@ -1,11 +1,17 @@
-$fn = 100;
+/* [Amount of Detail] */
+SIDES_PER_OBJECT = 100; // [5:1000]
 
-LENGTH = 60;
-WIDTH = 22;
-HEIGHT = 8;
+/* [Hidden] */
+$fn = SIDES_PER_OBJECT;
 
-HOLE_DISTANCE = 10;
-HOLE_DIAMETER = 4;
+/* [Door Holder Dimensions] */
+LENGTH = 60; // .1
+WIDTH = 22; // .1
+HEIGHT = 8; // .1
+
+/* [Screw Hole] */
+HOLE_DISTANCE = 10; // .1
+HOLE_DIAMETER = 4; // .1
 
 include <../.lib/BOSL2/std.scad>
 

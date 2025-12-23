@@ -1,12 +1,15 @@
-WEDGE_LENGTH = 130;
-WEDGE_WIDTH = 22.5;
-WEDGE_COMMON_HEIGHT = 16;
+/* [Wedge Dimensions] */
+WEDGE_LENGTH = 130; // .1
+WEDGE_WIDTH = 22.5; // .1
+// Start height
+WEDGE_COMMON_HEIGHT = 16; // .1
+// Amount of height added over the length of the wedge
+WEDGE_SLOPE_END_HEIGHT_ADDITION = 4; // .1
 
-WEDGE_SLOPE_END_HEIGHT_ADDITION = 4;
-
+/* [Grip] */
 GRIP = true;
-GRIP_THICKNESS = 8;
-GRIP_LENTGTH = 30;
+GRIP_THICKNESS = 8; // .1
+GRIP_LENTGTH = 30; // .1
 
 union() {
   hull() {
