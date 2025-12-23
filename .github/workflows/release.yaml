@@ -26,9 +26,7 @@ jobs:
           run: "python3 ./build-all.py"
 
       - name: "Zip Release"
-        uses: nicknovitski/nix-develop@v1
-        with:
-          run: "zip -r release.zip LICENSE README.md ./*/*.*"
+        run: "zip -r release.zip LICENSE README.md ./*/*.*"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2.0.5
