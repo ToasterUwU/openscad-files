@@ -1,0 +1,29 @@
+/* [General Dimensions] */
+INNER_LENGTH = 94;
+INNER_WIDTH = 29;
+INNER_HEIGHT = 24;
+WALL_THICKNESS = 3;
+
+/* [Holder Lip Dimensions] */
+HOLDER_LIP_LENGTH = 60;
+HOLDER_LIP_WIDTH = 4;
+HOLDER_LIP_INCLINE_LENGTH = 10;
+
+render() {
+  union() {
+    difference() {
+      cube([INNER_LENGTH + WALL_THICKNESS, INNER_WIDTH + 2 * WALL_THICKNESS, INNER_HEIGHT + 2 * WALL_THICKNESS]);
+      translate([0, WALL_THICKNESS, WALL_THICKNESS]) {
+        cube([INNER_LENGTH, INNER_WIDTH, INNER_HEIGHT + WALL_THICKNESS]);
+      }
+    }
+    translate([0, WALL_THICKNESS, WALL_THICKNESS + INNER_HEIGHT]) {
+      hull() {
+        cube([HOLDER_LIP_LENGTH, HOLDER_LIP_WIDTH, WALL_THICKNESS]);
+        translate([HOLDER_LIP_LENGTH + HOLDER_LIP_INCLINE_LENGTH, 0, 0]) {
+          cube([0.000000000000000000001, 0.000000000000000000001, WALL_THICKNESS]);
+        }
+      }
+    }
+  }
+}
