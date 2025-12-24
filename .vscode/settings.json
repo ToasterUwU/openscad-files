@@ -1,3 +1,9 @@
 {
-    "scad-lsp.fmtStyle": "file"
+  "scad-lsp.fmtStyle": "file",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
