@@ -30,7 +30,7 @@ render() {
     }
     translate([MOUNT_HOLE_EAR_LENGTH / 2, MOUNT_DEPTH / 2, 0]) {
       // Left Screw Hole
-      cylinder(h=MOUNT_WALL_THICKNESS, r=HOLDER_DIAMETER/2);
+      cylinder(h=MOUNT_WALL_THICKNESS, r=MOUNT_HOLE_DIAMETER/2);
     }
     translate([MOUNT_HOLE_EAR_LENGTH + LOOP_THICKNESS, 0, 0]) {
       // Loop Hole
@@ -42,7 +42,7 @@ render() {
     }
     translate([MOUNT_WIDTH-(MOUNT_HOLE_EAR_LENGTH / 2), MOUNT_DEPTH / 2, 0]) {
       // Right Screw Hole
-      cylinder(h=MOUNT_WALL_THICKNESS, r=HOLDER_DIAMETER/2);
+      cylinder(h=MOUNT_WALL_THICKNESS, r=MOUNT_HOLE_DIAMETER/2);
     }
   }
 }
