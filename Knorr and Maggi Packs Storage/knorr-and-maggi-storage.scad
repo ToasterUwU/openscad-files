@@ -13,18 +13,17 @@ COMPARTMENT_DEPTH = 110; // .1
 // Includes Walls
 COMPARTMENT_HEIGHT = 150; // .1
 
-/* [Hidden] */
-COMPARTMENTS_PER_ROW = (STACK_COMPARTMENTS) ? NUMBER_OF_COMPARTMENTS / 2 : NUMBER_OF_COMPARTMENTS;
+function COMPARTMENTS_PER_ROW() = round((STACK_COMPARTMENTS) ? NUMBER_OF_COMPARTMENTS / 2 : NUMBER_OF_COMPARTMENTS);
 
 render() {
-  for (i = [0:1:round(COMPARTMENTS_PER_ROW) - 1]) {
+  for (i = [0:1:COMPARTMENTS_PER_ROW() - 1]) {
     // Move everything over next to each other for each compartment block
     translate(v=[(i * COMPARTMENT_WIDTH) - (i * WALL_THICKNESS), 0, 0]) {
       compartment();
 
       // If its supposed to stack compartments, and if the amount of total compartments is either even, or if its any compartment except for the last one
       // Effectively makes sure that the right amount of compartments is used, even if its an uneven amount, leaving out the last top one if needed
-      if (STACK_COMPARTMENTS && (NUMBER_OF_COMPARTMENTS % 2 == 0 || i != round(COMPARTMENTS_PER_ROW) - 1)) {
+      if (STACK_COMPARTMENTS && (NUMBER_OF_COMPARTMENTS % 2 == 0 || i != COMPARTMENTS_PER_ROW() - 1)) {
         // Move everything back while avoiding double walls
         translate(v=[0, COMPARTMENT_DEPTH - WALL_THICKNESS, 0]) {
           // Make the upper compartment, reuse part of the first ones wall for
