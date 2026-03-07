@@ -1,5 +1,5 @@
 /* [Amount of Detail] */
-SIDES_PER_OBJECT = 250; // [5:1000]
+SIDES_PER_OBJECT = 250; // [4:1000]
 
 /* [Hidden] */
 $fn = SIDES_PER_OBJECT;
