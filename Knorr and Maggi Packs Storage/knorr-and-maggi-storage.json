@@ -1,0 +1,85 @@
+{
+    "parameterSets": {
+        "Default Dimensions 1x1": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "false",
+            "NUMBER_OF_COMPARTMENTS": "1",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 2x1": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "true",
+            "NUMBER_OF_COMPARTMENTS": "2",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 1x2": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "false",
+            "NUMBER_OF_COMPARTMENTS": "2",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 2x2": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "true",
+            "NUMBER_OF_COMPARTMENTS": "4",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 1x3": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "false",
+            "NUMBER_OF_COMPARTMENTS": "3",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 2x3": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "STACK_COMPARTMENTS": "true",
+            "NUMBER_OF_COMPARTMENTS": "6",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 2x1+1": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "NUMBER_OF_COMPARTMENTS": "3",
+            "STACK_COMPARTMENTS": "true",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        },
+        "Default Dimensions 2x3+1": {
+            "COMPARTMENT_DEPTH": "110",
+            "COMPARTMENT_HEIGHT": "150",
+            "COMPARTMENT_WIDTH": "140",
+            "NUMBER_OF_COMPARTMENTS": "7",
+            "STACK_COMPARTMENTS": "true",
+            "SUPPORT_WALLS_FOR_STACK_COMPARTMENTS": "true",
+            "TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS": "true",
+            "WALL_THICKNESS": "5"
+        }
+    },
+    "fileFormatVersion": "1"
+}

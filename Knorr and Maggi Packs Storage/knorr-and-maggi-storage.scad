@@ -1,8 +1,8 @@
 /* [General Settings] */
 NUMBER_OF_COMPARTMENTS = 1;
-DOUBLE_COMPARTMENTS = true;
-SUPPORT_WALLS_FOR_DOUBLE_COMPARTMENTS = true;
-TRIANGLE_SLANTS_FOR_DOUBLE_COMPARTMENTS = true;
+STACK_COMPARTMENTS = true;
+SUPPORT_WALLS_FOR_STACK_COMPARTMENTS = true;
+TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS = true;
 
 /* [Compartment Dimensions] */
 WALL_THICKNESS = 5; // .1
@@ -13,13 +13,18 @@ COMPARTMENT_DEPTH = 110; // .1
 // Includes Walls
 COMPARTMENT_HEIGHT = 150; // .1
 
+/* [Hidden] */
+COMPARTMENTS_PER_ROW = (STACK_COMPARTMENTS) ? NUMBER_OF_COMPARTMENTS / 2 : NUMBER_OF_COMPARTMENTS;
+
 render() {
-  for (i = [0:1:NUMBER_OF_COMPARTMENTS - 1]) {
+  for (i = [0:1:round(COMPARTMENTS_PER_ROW) - 1]) {
     // Move everything over next to each other for each compartment block
     translate(v=[(i * COMPARTMENT_WIDTH) - (i * WALL_THICKNESS), 0, 0]) {
       compartment();
 
-      if (DOUBLE_COMPARTMENTS) {
+      // If its supposed to stack compartments, and if the amount of total compartments is either even, or if its any compartment except for the last one
+      // Effectively makes sure that the right amount of compartments is used, even if its an uneven amount, leaving out the last top one if needed
+      if (STACK_COMPARTMENTS && (NUMBER_OF_COMPARTMENTS % 2 == 0 || i != round(COMPARTMENTS_PER_ROW) - 1)) {
         // Move everything back while avoiding double walls
         translate(v=[0, COMPARTMENT_DEPTH - WALL_THICKNESS, 0]) {
           // Make the upper compartment, reuse part of the first ones wall for
@@ -27,7 +32,7 @@ render() {
           translate(v=[0, 0, 0.75 * COMPARTMENT_HEIGHT]) { compartment(); }
 
           // Support Walls below the top compartment
-          if (SUPPORT_WALLS_FOR_DOUBLE_COMPARTMENTS) {
+          if (SUPPORT_WALLS_FOR_STACK_COMPARTMENTS) {
             for (x = [0.25:0.50:0.75]) {
               translate(v=[x * (COMPARTMENT_WIDTH - WALL_THICKNESS), 0, 0]) {
                 cube(size=[WALL_THICKNESS, COMPARTMENT_DEPTH, 0.75 * COMPARTMENT_HEIGHT]);
@@ -36,7 +41,7 @@ render() {
           }
 
           // Slants to prevent overhang issues while printing
-          if (TRIANGLE_SLANTS_FOR_DOUBLE_COMPARTMENTS) {
+          if (TRIANGLE_SLANTS_FOR_STACK_COMPARTMENTS) {
             // Do 2 times, orient on Support Walls in the back
             for (x = [0.25:0.50:0.75]) {
               hull() {
